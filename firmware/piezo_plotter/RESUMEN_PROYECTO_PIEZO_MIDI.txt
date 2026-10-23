@@ -1,0 +1,26 @@
+PROYECTO: Piezoelectricos a USB MIDI con Teensy 4.1
+
+Punto de partida
+- Se partio de un lector de un piezo en A17 con la libreria ADC y muestreo por interrupcion.
+- El ADC trabaja a 12 bits (0 a 4095) y el buffer circular evita hacer trabajo lento dentro de la ISR.
+
+Modificaciones realizadas
+- Se elimino la salida por Serial/Serial Plotter.
+- Un golpe que supera 400 inicia la deteccion. Durante 2 ms se conserva su valor maximo.
+- El pico se convierte a velocidad MIDI de 1 a 127; 400 equivale a velocidad baja y 4095 a 127.
+- Se envia USB MIDI por canal 1, con noteOn y un noteOff automatico tras 25 ms.
+- Para impedir disparos repetidos por la vibracion del mismo piezo, cada entrada se rearma solo al bajar de 100.
+
+Estado actual del archivo PruebaEscalable
+- MODO_PRUEBA_A17 esta en 0: estan activas las 12 entradas A0, A1, A2, A3, A6, A7, A8, A9, A10, A11, A12 y A13.
+- A0 conserva C2 (MIDI 36) y A2 conserva D2 (MIDI 38). Para la prueba actual, A9 (pin fisico 23) envia F#2 (MIDI 42), en vez de su asignacion normal G2.
+- Al cambiar MODO_PRUEBA_A17 a 1, se vuelve a usar solo A17 y C2.
+- A4 y A5 quedan reservados para I2C.
+- La asignacion base es C2 a B2. Temporalmente, A9 duplica F#2 para la prueba solicitada.
+- Cada piezo tiene detector, velocidad, rearme y noteOff propios, por lo que se pueden tocar acordes.
+
+Siguiente etapa
+- Montar los 12 piezos con proteccion adecuada para las entradas ADC.
+- Probar sensibilidad por pad y restaurar A9 a G2 cuando termine la prueba de F#2.
+- Ajustar UMBRAL_GOLPE, UMBRAL_REARME, VENTANA_PICO_US y DURACION_NOTA_MS segun el montaje real.
+- Configurar el Teensy en Arduino IDE con Tools > USB Type > MIDI y usarlo como entrada MIDI en Kontakt.
