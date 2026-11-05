@@ -14,6 +14,23 @@ hardware/
 └── bom/                       # Lista de materiales
 ```
 
+### Proyecto `Indutrial`
+
+Estado actual del diseño, con la hoja raíz y las hojas de subsistemas:
+
+```
+hardware/Indutrial/
+├── Indutrial.kicad_pro        # Proyecto de KiCad
+├── Indutrial.kicad_sch        # Hoja raíz (interconexión entre hojas)
+├── Indutrial.kicad_pcb        # Diseño de la PCB
+├── DAC.kicad_sch              # Códec de audio (PCM5102)
+├── regulador.kicad_sch        # Alimentación y regulación
+├── QLED.kicad_sch             # Controles, OLED y LEDs RGB
+└── untitled.kicad_sch         # Hoja de trabajo en curso
+```
+
+> Los archivos temporales/locales de KiCad (`.kicad_prl`, `~*.lck`, `#auto_saved_files#`, `*-backups/`, `_autosave-*`) están excluidos mediante `.gitignore`.
+
 ## Esquemáticos jerárquicos
 
 El diseño se divide en hojas por subsistema:

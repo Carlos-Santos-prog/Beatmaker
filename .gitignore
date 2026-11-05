@@ -1,0 +1,16 @@
+# --- KiCad (archivos temporales / locales) ---
+*.kicad_prl
+*.lck
+~*.lck
+\#auto_saved_files#
+_autosave-*
+*-backups/
+*.bak
+fp-info-cache
+*.kicad_wks.bak
+
+# --- Sistema / editor ---
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
