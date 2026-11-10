@@ -2455,6 +2455,12 @@
 		(color 0 0 0 0)
 		(uuid "ebace41c-1a60-4fce-80dc-5e6e6aac26ff")
 	)
+	(junction
+		(at 107.95 114.3)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fd94684d-183c-4f1b-948e-8b1118443da6")
+	)
 	(no_connect
 		(at 123.19 104.14)
 		(uuid "248a808d-aaa0-4af3-8049-13f38d4a551e")
@@ -2476,6 +2482,16 @@
 			(type default)
 		)
 		(uuid "11b7eb6e-5c87-4298-85eb-d7e142eb5ecc")
+	)
+	(wire
+		(pts
+			(xy 100.33 114.3) (xy 107.95 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "18cadc2e-07dc-4f15-a94a-149fb138879c")
 	)
 	(wire
 		(pts
@@ -2549,6 +2565,16 @@
 	)
 	(wire
 		(pts
+			(xy 107.95 114.3) (xy 107.95 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3bf38287-3c23-4133-88bd-e0ca601daa5a")
+	)
+	(wire
+		(pts
 			(xy 125.73 87.63) (xy 127 87.63)
 		)
 		(stroke
@@ -2589,7 +2615,7 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 111.76) (xy 100.33 115.57)
+			(xy 100.33 111.76) (xy 100.33 114.3)
 		)
 		(stroke
 			(width 0)
@@ -2908,84 +2934,6 @@
 			(justify left)
 		)
 		(uuid "cc099d53-fd71-41da-bbba-93ef0f25a84a")
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 100.33 115.57 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "04526b14-f31f-451e-95ec-ff654899b0fb")
-		(property "Reference" "#PWR01"
-			(at 100.33 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 100.33 120.65 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 100.33 115.57 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 100.33 115.57 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 100.33 115.57 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "55b9d9f5-96de-4b78-81d3-52adc117a52c")
-		)
-		(instances
-			(project "Indutrial"
-				(path "/aceade5e-5502-46a6-95c1-d42dd32533bf/fb71ffa9-db13-4f5e-9fd2-7675cc5450d2"
-					(reference "#PWR01")
-					(unit 1)
-				)
-			)
-		)
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -4386,6 +4334,84 @@
 			(project "Indutrial"
 				(path "/aceade5e-5502-46a6-95c1-d42dd32533bf/fb71ffa9-db13-4f5e-9fd2-7675cc5450d2"
 					(reference "#PWR08")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 107.95 115.57 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bfae6a02-12a9-494a-9b3e-78ba9bd697c7")
+		(property "Reference" "#PWR042"
+			(at 107.95 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 107.95 120.65 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 107.95 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 107.95 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 107.95 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7e0b5faf-d646-459f-8451-9c87ebcb56a6")
+		)
+		(instances
+			(project "Indutrial"
+				(path "/aceade5e-5502-46a6-95c1-d42dd32533bf/fb71ffa9-db13-4f5e-9fd2-7675cc5450d2"
+					(reference "#PWR042")
 					(unit 1)
 				)
 			)
