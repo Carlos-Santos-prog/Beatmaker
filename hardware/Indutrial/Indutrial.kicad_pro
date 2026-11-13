@@ -643,6 +643,9 @@
       "Net-(C35-Pad1)": [
         "PWR"
       ],
+      "Net-(D1-A1)": [
+        "PWR"
+      ],
       "Net-(J16-Pin_3)": [
         "sig_big"
       ],
@@ -795,7 +798,7 @@
         "uuid": "aceade5e-5502-46a6-95c1-d42dd32533bf"
       }
     ],
-    "used_designators": "C1-35,#FLG1-2,R1-37,J1-17,D1-36,#PWR1-75,U1-5,U7,RV1-4,SW1-5",
+    "used_designators": "C1-38,#FLG1-2,R1-37,J1-17,D1-36,#PWR1-78,U1-5,U7,RV1-4,SW1-5",
     "variants": []
   },
   "sheets": [
