@@ -60,13 +60,13 @@
           "hatch_smoothing_level": 0,
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
-          "min_clearance": 0.5,
+          "min_clearance": 0.025,
           "min_island_area": 10.0,
-          "min_thickness": 0.25,
-          "pad_connection": 1,
+          "min_thickness": 0.025,
+          "pad_connection": 2,
           "remove_islands": 0,
-          "thermal_relief_gap": 0.5,
-          "thermal_relief_spoke_width": 0.5
+          "thermal_relief_gap": 0.025,
+          "thermal_relief_spoke_width": 0.025
         }
       },
       "diff_pair_dimensions": [],
@@ -172,7 +172,6 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
-          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -184,7 +183,6 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
-          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -196,7 +194,6 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
-          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -511,18 +508,151 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
+        "track_width": 0.25,
         "tuning_profile": "",
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "wire_width": 6
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "3p3V",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 2,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.35,
+        "tuning_profile": "",
+        "via_diameter": 0.6,
+        "via_drill": 0.3
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "PWR",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 3,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.8,
+        "tuning_profile": "",
+        "via_diameter": 0.6,
+        "via_drill": 0.3
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "sig_big",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.3,
+        "tuning_profile": "",
+        "via_diameter": 0.6,
+        "via_drill": 0.3
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "sig_small",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 1,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.2,
+        "tuning_profile": "",
+        "via_diameter": 0.6,
+        "via_drill": 0.3
       }
     ],
     "meta": {
       "version": 5
     },
-    "net_colors": {},
-    "netclass_assignments": {},
+    "net_colors": null,
+    "netclass_assignments": {
+      "+3.3V": [
+        "3p3V"
+      ],
+      "+5V": [
+        "PWR"
+      ],
+      "/A4": [
+        "sig_small"
+      ],
+      "/A5": [
+        "sig_small"
+      ],
+      "/B1": [
+        "sig_small"
+      ],
+      "/B2": [
+        "sig_small"
+      ],
+      "/B3": [
+        "sig_small"
+      ],
+      "/B4": [
+        "sig_small"
+      ],
+      "/D+": [
+        "sig_small"
+      ],
+      "/D-": [
+        "sig_small"
+      ],
+      "/Data_leds": [
+        "sig_big"
+      ],
+      "/Encoder_bttn": [
+        "sig_small"
+      ],
+      "/Encoder_pin_1": [
+        "sig_small"
+      ],
+      "/Encoder_pin_2": [
+        "sig_small"
+      ],
+      "/P1": [
+        "sig_small"
+      ],
+      "/P2": [
+        "sig_small"
+      ],
+      "/P3": [
+        "sig_small"
+      ],
+      "/P4": [
+        "sig_small"
+      ],
+      "Net-(C28-Pad2)": [
+        "sig_big"
+      ],
+      "Net-(C29-Pad2)": [
+        "sig_big"
+      ],
+      "Net-(C35-Pad1)": [
+        "PWR"
+      ],
+      "Net-(J16-Pin_3)": [
+        "sig_big"
+      ],
+      "Net-(U4-OUTL)": [
+        "sig_big"
+      ],
+      "Net-(U4-OUTR)": [
+        "sig_big"
+      ]
+    },
     "netclass_patterns": []
   },
   "pcbnew": {
@@ -662,16 +792,16 @@
       {
         "filename": "Indutrial.kicad_sch",
         "name": "Indutrial",
-        "uuid": "00000000-0000-0000-0000-000000000000"
+        "uuid": "aceade5e-5502-46a6-95c1-d42dd32533bf"
       }
     ],
-    "used_designators": "",
+    "used_designators": "C1-35,#FLG1-2,R1-37,J1-17,D1-36,#PWR1-75,U1-5,U7,RV1-4,SW1-5",
     "variants": []
   },
   "sheets": [
     [
       "aceade5e-5502-46a6-95c1-d42dd32533bf",
-      "Root"
+      "Indutrial"
     ],
     [
       "fb71ffa9-db13-4f5e-9fd2-7675cc5450d2",
@@ -740,6 +870,14 @@
     [
       "7f5c86f5-774e-4d51-91f8-faa3ebc721dc",
       "Potenciomentro"
+    ],
+    [
+      "ee285fa3-9388-4948-bef3-e3cfd401d64a",
+      "Tira_led"
+    ],
+    [
+      "42af602c-a515-4c46-b6e5-426dc46d9055",
+      "Encoder_rotatorio"
     ]
   ],
   "text_variables": {},
