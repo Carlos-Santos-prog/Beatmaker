@@ -76,7 +76,72 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "courtyards_overlap|188375000|94725186|565b370b-0a01-4d26-9b20-a02586b660ef|9a177d1d-e067-461e-8bd4-150ae07a958e",
+          ""
+        ],
+        [
+          "courtyards_overlap|190915000|94524300|92996aa2-c04a-4b28-a826-386e7ee010d3|9a177d1d-e067-461e-8bd4-150ae07a958e",
+          ""
+        ],
+        [
+          "courtyards_overlap|198275000|85695000|7e3d5644-5c07-4d36-892c-1ac4c08a51db|9a177d1d-e067-461e-8bd4-150ae07a958e",
+          ""
+        ],
+        [
+          "courtyards_overlap|200025000|85725000|7eae30d2-4f20-44a8-9799-69c7b320b92d|9a177d1d-e067-461e-8bd4-150ae07a958e",
+          ""
+        ],
+        [
+          "courtyards_overlap|205645000|84685000|8bdbb992-d541-4949-b49e-387170f306f7|9a177d1d-e067-461e-8bd4-150ae07a958e",
+          ""
+        ],
+        [
+          "hole_clearance|191540000|111275000|e38e5149-23d5-4ed6-9beb-6d9c643a24a7|94a1960c-d19d-4040-a21d-44594ec1207a",
+          ""
+        ],
+        [
+          "hole_clearance|191540000|111275000|eb392a27-26b1-4446-8f77-758c0674e229|94a1960c-d19d-4040-a21d-44594ec1207a",
+          ""
+        ],
+        [
+          "hole_clearance|197640000|111275000|2dd6bac5-2247-4eb7-b35f-dd823a093539|d154a396-226d-46ac-84ae-695ded877743",
+          ""
+        ],
+        [
+          "hole_clearance|197640000|111275000|47773f3c-0b46-46c3-9f4f-65d97ba42858|d154a396-226d-46ac-84ae-695ded877743",
+          ""
+        ],
+        [
+          "silk_edge_clearance|105680000|118700000|e6a854e9-97c2-49b2-af37-125ccec1a608|cb368f63-b43f-4a75-8eb3-458c10fe936d",
+          ""
+        ],
+        [
+          "silk_edge_clearance|106430000|118700000|e6a854e9-97c2-49b2-af37-125ccec1a608|a0445e7f-21c7-4bc2-9b33-404cd3ce1df7",
+          ""
+        ],
+        [
+          "silk_edge_clearance|107180000|118700000|e6a854e9-97c2-49b2-af37-125ccec1a608|4030483b-a5eb-4d72-b3ab-216163b80aba",
+          ""
+        ],
+        [
+          "silk_edge_clearance|98180000|118700000|be3f8c68-909d-4390-86c5-28d5e6950565|828fe15a-dc33-455e-a0e3-31e6dfa8510a",
+          ""
+        ],
+        [
+          "silk_edge_clearance|98930000|118700000|be3f8c68-909d-4390-86c5-28d5e6950565|9cf58d25-b116-4608-853b-03fd0d7f3f57",
+          ""
+        ],
+        [
+          "silk_edge_clearance|99680000|118700000|be3f8c68-909d-4390-86c5-28d5e6950565|79b18347-1b76-4fe4-a1ce-b7c583ad50b1",
+          ""
+        ],
+        [
+          "unconnected_items|193755000|84230000|F.Cu|4|976a8e3c-105e-499b-b238-16d589a3215c|822eaa26-0d9e-4f99-86d2-6c4c34ddd2c7",
+          ""
+        ]
+      ],
       "meta": {
         "version": 2
       },
@@ -681,7 +746,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "Indutrial.step",
       "svg": "",
       "vrml": ""
     },
