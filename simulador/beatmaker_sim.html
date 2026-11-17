@@ -350,8 +350,13 @@ function mainLoop(){
 const KITS = [
   {name:'808 CLASSIC', dir:'KIT1', pitch:1.0, decay:1.0, drive:0},
   {name:'808 PUNCHY',  dir:'KIT2', pitch:1.25,decay:0.6, drive:0},
-  {name:'808 DEEP',    dir:'KIT3', pitch:0.85,decay:1.3, drive:1}
+  {name:'808 DEEP',    dir:'KIT3', pitch:0.85,decay:1.3, drive:1},
+  {name:'LINN LM-2',   dir:'KIT4', pitch:1.0, decay:0.8, drive:1},
+  {name:'CASIO RZ-1',  dir:'KIT5', pitch:1.1, decay:0.7, drive:1},
+  {name:'ROLAND CR-8000', dir:'KIT6', pitch:0.95, decay:1.0, drive:0}
 ];
+const SHARED_PADS = [2,3,8,9];          // en los kits 808 (1-3) estos pads usan el mismo WAV
+const KIT_RATE = [1.0, 1.15, 0.87];     // afinacion relativa de esos pads por kit (solo kits 1-3)
 const SAMPLE_FILES = ['01_KICK','02_SNARE','03_CLAP','04_HATC','05_HATO','06_TOML','07_TOMM','08_TOMH','09_RIM','10_COWB','11_CRSH','12_PERC'];
 const SAMPLE_BASE = '../samples/kits/';
 const rawSamples = KITS.map(()=>new Array(NUM_PADS).fill(null));   // ArrayBuffer descargado
@@ -402,7 +407,9 @@ function playPad(pad, vel){
   if (smp && smp !== 'pendiente'){                       // sample real de la libreria
     const prev = activeVoices[pad];
     if (prev){ try{ prev.g.gain.setTargetAtTime(0,t,0.005); prev.s.stop(t+0.03);}catch(e){} }
-    const s = ac.createBufferSource(); s.buffer = smp; s.playbackRate.value = state.pitch;
+    // Clap, hat cerrado, rim y cowbell son el mismo WAV en los 3 kits: se diferencian por afinacion.
+    const rate = state.pitch * (SHARED_PADS.includes(pad) ? (KIT_RATE[state.kit] || 1) : 1);
+    const s = ac.createBufferSource(); s.buffer = smp; s.playbackRate.value = rate;
     const g = ac.createGain(); g.gain.value = amp;
     s.connect(g).connect(master); s.start(t);
     activeVoices[pad] = {s,g}; s.onended = ()=>{ if(activeVoices[pad] && activeVoices[pad].s===s) activeVoices[pad]=null; };
@@ -541,7 +548,7 @@ const BTNS = [
   {id:'play',label:'▶ / ■',fn:()=>{audioInit();state.playing=!state.playing; if(state.playing){stepT0=performance.now();state.step=-1;nextStepAt=performance.now();} else {state.step=-1;}}},
   {id:'rec', label:'● REC',fn:()=>{state.rec=!state.rec;}},
   {id:'clr', label:'CLR',  fn:()=>{pattern.forEach(r=>r.fill(0));}},
-  {id:'kit', label:'KIT',  fn:()=>{state.kit=(state.kit+1)%KITS.length;}}
+  {id:'kit', label:'KIT',  fn:()=>{changeKit(1);}}
 ];
 const btnsEl=$('#btns'); const btnEls={};
 BTNS.forEach(b=>{ const e=document.createElement('button'); e.className='btn'; e.textContent=b.label;
@@ -552,10 +559,19 @@ const encEl=$('#enc'); let encRot=0, encY=null;
 encEl.addEventListener('pointerdown',e=>{encY=e.clientY;encEl.setPointerCapture(e.pointerId);encEl.dataset.moved='';});
 encEl.addEventListener('pointermove',e=>{ if(encY===null)return; const d=e.clientY-encY;
   if (Math.abs(d)>14){ encY=e.clientY; encEl.dataset.moved='1'; encRot+=d>0?25:-25; encEl.style.setProperty('--rot',encRot+'deg');
-    state.kit=(state.kit+(d>0?1:KITS.length-1))%KITS.length; } });
+    changeKit(d>0?1:-1); } });
 encEl.addEventListener('pointerup',()=>{ encY=null; if(!encEl.dataset.moved) state.page=(state.page+1)%2; });
 encEl.addEventListener('wheel',e=>{e.preventDefault(); encRot+=e.deltaY>0?25:-25; encEl.style.setProperty('--rot',encRot+'deg');
-  state.kit=(state.kit+(e.deltaY>0?1:KITS.length-1))%KITS.length;},{passive:false});
+  changeKit(e.deltaY>0?1:-1);},{passive:false});
+
+/* ---- cambio de kit: aviso en pantalla + escucha de prueba ---- */
+let toast = null;
+function changeKit(delta){
+  audioInit();
+  state.kit = (state.kit + delta + KITS.length) % KITS.length;
+  toast = {text:`KIT ${state.kit+1}/${KITS.length}\n${KITS[state.kit].name}`, until: performance.now()+1500};
+  [0,1].forEach((p,i)=>setTimeout(()=>playPad(p,100), i*220));   // kick + snare del kit elegido
+}
 
 /* ---- secuenciador de demo ---- */
 let stepT0=0, nextStepAt=0, stepMs=0;
@@ -579,9 +595,12 @@ const oledEl=$('#oled');
 function drawOled(){
   const bar=(v,n=14)=>'█'.repeat(Math.round(v*n)).padEnd(n,'░');
   let s='';
+  if (toast && performance.now() < toast.until){
+    oledEl.textContent = '\n\n   ' + toast.text.replace('\n','\n\n   '); return;
+  }
   if (state.page===0){
     s += `BEATMAKER        ${state.playing?'▶':'■'}${state.rec?' ●':'  '}\n`;
-    s += `KIT  ${KITS[state.kit].name.padEnd(8)} BPM ${state.bpm}\n`;
+    s += `KIT${state.kit+1} ${KITS[state.kit].name.replace('808 ','').slice(0,9).padEnd(9)} BPM ${state.bpm}\n`;
     s += `VOL  ${bar(state.vol)}\n`;
     s += `SENS ${bar(state.sens)}\n`;
     s += lastHit ? `\n${PAD_NAMES[lastHit.pad].padEnd(8)} N${lastHit.nota} V${String(lastHit.vel).padStart(3,'0')}` : `\nlisto · golpea un pad`;

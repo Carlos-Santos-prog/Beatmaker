@@ -1,10 +1,63 @@
 {
   "formato": "WAV 16-bit 44.1 kHz mono (compatible con AudioPlaySdWav del Teensy)",
-  "pads": ["KICK","SNARE","CLAP","HAT C","HAT O","TOM L","TOM M","TOM H","RIM","COWBELL","CRASH","PERC"],
-  "archivos": ["01_KICK.WAV","02_SNARE.WAV","03_CLAP.WAV","04_HATC.WAV","05_HATO.WAV","06_TOML.WAV","07_TOMM.WAV","08_TOMH.WAV","09_RIM.WAV","10_COWB.WAV","11_CRSH.WAV","12_PERC.WAV"],
+  "pads": [
+    "KICK",
+    "SNARE",
+    "CLAP",
+    "HAT C",
+    "HAT O",
+    "TOM L",
+    "TOM M",
+    "TOM H",
+    "RIM",
+    "COWBELL",
+    "CRASH",
+    "PERC"
+  ],
+  "archivos": [
+    "01_KICK.WAV",
+    "02_SNARE.WAV",
+    "03_CLAP.WAV",
+    "04_HATC.WAV",
+    "05_HATO.WAV",
+    "06_TOML.WAV",
+    "07_TOMM.WAV",
+    "08_TOMH.WAV",
+    "09_RIM.WAV",
+    "10_COWB.WAV",
+    "11_CRSH.WAV",
+    "12_PERC.WAV"
+  ],
   "kits": [
-    {"carpeta": "KIT1", "nombre": "808 CLASSIC", "nota": "ajustes medios de la TR-808"},
-    {"carpeta": "KIT2", "nombre": "808 PUNCHY",  "nota": "afinado alto, decay corto, maracas como perc"},
-    {"carpeta": "KIT3", "nombre": "808 DEEP",    "nota": "afinado grave, decay largo, conga como perc"}
+    {
+      "carpeta": "KIT1",
+      "nombre": "808 CLASSIC",
+      "nota": "ajustes medios de la TR-808"
+    },
+    {
+      "carpeta": "KIT2",
+      "nombre": "808 PUNCHY",
+      "nota": "afinado alto, decay corto, maracas como perc"
+    },
+    {
+      "carpeta": "KIT3",
+      "nombre": "808 DEEP",
+      "nota": "afinado grave, decay largo, conga como perc"
+    },
+    {
+      "carpeta": "KIT4",
+      "nombre": "LINN LM-2",
+      "nota": "caja de ritmos digital de los 80, seca y punchy"
+    },
+    {
+      "carpeta": "KIT5",
+      "nombre": "CASIO RZ-1",
+      "nota": "digital lo-fi de los 80, sonido compacto"
+    },
+    {
+      "carpeta": "KIT6",
+      "nombre": "ROLAND CR-8000",
+      "nota": "analogica de los 70, calida; tom medio = conga grave, perc = conga aguda"
+    }
   ]
 }
