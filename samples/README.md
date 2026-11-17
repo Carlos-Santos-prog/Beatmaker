@@ -14,7 +14,7 @@ samples/kits/
     └── 01_KICK.WAV ... 12_PERC.WAV
 ```
 
-Para usarlos en el equipo, copiar las carpetas `KIT1` a `KIT6` a la raiz de la microSD (FAT32).
+Para usarlos en el equipo, copiar las carpetas `KIT1` a `KIT7` a la raiz de la microSD (FAT32).
 Los nombres respetan el formato 8.3.
 
 | Pad | Archivo | KIT1 | KIT2 | KIT3 |
@@ -65,3 +65,26 @@ y se normalizaron a -0.9 dBFS.
 | 10 COWB | cowbell | cowbell | cowbell |
 | 11 CRSH | crash | crash | cymball |
 | 12 PERC | tambourine | ride | conga-high |
+
+### Kit 7: DEMBOW
+
+Hecho con one-shots de [MIDI Klowd, "Reggaeton One-Shots & Loops"](https://thebeatcommunity.com/2024/01/18/midi-klowd-release-reggaeton-one-shots-loops-a-free-download/)
+(pack gratuito, anunciado como royalty-free; WAV 24-bit original). Uso interno del proyecto, **no redistribuir** el pack ni los WAV fuera del proyecto.
+Importado con `tools/importar_kit.py` (WAV 16-bit / 44.1 kHz / mono, recortado a 2 s y normalizado). El pack original
+no se versiona (`samples/_origen/` esta en `.gitignore`).
+
+| Pad | Archivo original (carpeta del pack) |
+|---|---|
+| 1 KICK | Kicks / Kick_30 |
+| 2 SNARE | Snares / Snare_12 |
+| 3 CLAP | clap TR-808 (de KIT1; el pack no trae clap) |
+| 4 HATC | Hi_Hats / Hi_Hat_8 |
+| 5 HATO | Hats / Hat_4 |
+| 6-8 TOM | Timbals / Timbal_6, 3 y 7 (de grave a agudo) |
+| 9 RIM | Palitos / Palito_1 |
+| 10 COWB | cowbell TR-808 (de KIT1; el pack no trae campana) |
+| 11 CRSH | crash LM-2 (de KIT4; el pack no trae crash) |
+| 12 PERC | Latin_Punchs / Latin_Punch_12 |
+
+Para cambiar un sonido: `python samples/tools/importar_kit.py samples/_origen/klowd KIT7 --forzar 02_SNARE=Snares/ReggaetonLatino_Snare__20.wav`
+(hay que repetir todos los `--forzar` de la tabla o el script elegira solo los slots no indicados).

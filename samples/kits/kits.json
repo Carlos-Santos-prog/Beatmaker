@@ -58,6 +58,11 @@
       "carpeta": "KIT6",
       "nombre": "ROLAND CR-8000",
       "nota": "analogica de los 70, calida; tom medio = conga grave, perc = conga aguda"
+    },
+    {
+      "carpeta": "KIT7",
+      "nombre": "DEMBOW",
+      "nota": "dembow real (MIDI Klowd, Reggaeton One-Shots & Loops): kick, caja, timbales, palito"
     }
   ]
 }
